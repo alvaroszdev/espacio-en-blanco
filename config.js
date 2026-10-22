@@ -18,7 +18,7 @@ window.EB_CONFIG = {
 
   // CALENDARIO: enlace CSV de la Google Sheet publicada (ver README).
   // Si está vacío, o falla, se usan las fechas de "ocupadas" de abajo.
-  calendarioCsv: "calendario.csv",
+  calendarioCsv:   calendarioCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeKECklPhfBXjNa0SYMfbfWxD5ROcJg7v964PdxSbipHzsSs3abVpvGyoenm-OtkCSioFv0HJ3fFEt/pub?gid=0&single=true&output=csv",
 
   // Fechas de reserva de respaldo (AAAA-MM-DD)
   ocupadas: [
