@@ -55,4 +55,4 @@ Después, en GitHub: **Settings → Pages → Source: Deploy from a branch → m
 - Panel del dueño (Django) para confirmar reservas, bloquear días y marcar la señal como cobrada
 - Recordatorios automáticos (señal pendiente, "tu evento es en 3 días")
 - Ficha de cliente y contrato firmados online
-- Dominio propio
+- Dominio propio 
