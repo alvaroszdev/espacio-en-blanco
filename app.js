@@ -124,12 +124,12 @@
     const lines = [
       "Hola, quiero reservar en Espacio en Blanco:",
       "",
-      "📅 Fecha: " + fmtLong.format(fromIso(selected)),
-      "🎉 Evento: " + f.get("tipo"),
-      "👥 Invitados: " + f.get("invitados"),
-      "🕒 Horario: " + f.get("horario"),
-      extras.length ? "➕ Extras: " + extras.join(", ") : null,
-      String(f.get("comentarios") || "").trim() ? "📝 " + f.get("comentarios").trim() : null,
+      "- Fecha: " + fmtLong.format(fromIso(selected)),
+      "- Evento: " + f.get("tipo"),
+      "- Invitados: " + f.get("invitados"),
+      "- Horario: " + f.get("horario"),
+      extras.length ? "- Extras: " + extras.join(", ") : null,
+      String(f.get("comentarios") || "").trim() ? "- Comentarios: " + f.get("comentarios").trim() : null,
       "",
       "Nombre: " + f.get("nombre").trim(),
       "",
@@ -147,8 +147,8 @@
     e.preventDefault();
     const f = new FormData(e.target);
     if (!f.get("dia") || !String(f.get("nombre")).trim()) { e.target.reportValidity(); return; }
-    const msg = "Hola, me gustaría visitar Espacio en Blanco.\n\n📅 Día: " + fmtLong.format(fromIso(f.get("dia"))) +
-      "\n🕒 Franja: " + f.get("franja") + "\nNombre: " + f.get("nombre").trim() + "\n\n¿Me confirmáis la hora?";
+    const msg = "Hola, me gustaría visitar Espacio en Blanco.\n\n- Día: " + fmtLong.format(fromIso(f.get("dia"))) +
+      "\n- Franja: " + f.get("franja") + "\nNombre: " + f.get("nombre").trim() + "\n\n¿Me confirmáis la hora?";
     window.open(waLink(msg), "_blank", "noopener");
   });
 
