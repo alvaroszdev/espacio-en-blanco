@@ -14,7 +14,7 @@ window.EB_CONFIG = {
   instagram: "__espacioenblanco",
 
   // Señal para bloquear la fecha
-  senal: 50€,
+  senal: 50,
 
   // CALENDARIO: enlace CSV de la Google Sheet publicada (ver README).
   // Si está vacío, o falla, se usan las fechas de "ocupadas" de abajo.

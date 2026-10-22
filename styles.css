@@ -1,7 +1,7 @@
 :root {
   --ink: #141414;
-  --ink-2: #4a4a48;
-  --muted: #7b7a76;
+  --ink-2: #2f2f2d;
+  --muted: #5e5d59;
   --paper: #ffffff;
   --tint: #f6f5f2;
   --line: #e6e4df;
@@ -9,8 +9,8 @@
   --green-soft: #e8efe5;
   --busy: #d9d6cf;
   --wa: #1fa855;
-  --serif: "Bodoni Moda", "Didot", Georgia, serif;
-  --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "DM Serif Display", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --radius: 4px;
   --max: 1160px;
 }
@@ -110,7 +110,7 @@ em { font-style: italic; }
 .features { display: grid; gap: 36px; }
 .feature-group h3 { font-size: 15px; font-family: var(--sans); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid var(--ink); margin-bottom: 8px; }
 .feature-group ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 32px; }
-.feature-group li { padding: 8px 0 8px 18px; position: relative; break-inside: avoid; color: var(--ink-2); }
+.feature-group li { padding: 6px 0 6px 18px; position: relative; break-inside: avoid; color: var(--ink-2); }
 .feature-group li::before { content: ""; position: absolute; left: 0; top: 18px; width: 8px; height: 1px; background: var(--green); }
 
 /* Eventos */
