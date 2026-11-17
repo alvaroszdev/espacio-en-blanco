@@ -6,6 +6,7 @@
 
   /* ---------- Datos de contacto desde config ---------- */
   $("#demoBar").hidden = !C.demo;
+  if ($("#calDemo")) $("#calDemo").hidden = !C.demo;
   $$("[data-senal]").forEach(el => (el.textContent = C.senal));
   $$("[data-dir]").forEach(el => (el.textContent = C.direccion));
   $$("[data-maps]").forEach(a => (a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.direccion)));
@@ -36,7 +37,7 @@
 
   /* ---------- Calendario ---------- */
   let view = new Date(today.getFullYear(), today.getMonth(), 1);
-  const maxView = new Date(today.getFullYear(), today.getMonth() + 12, 1);
+  const maxView = new Date(today.getFullYear(), today.getMonth() + (C.mesesVisibles || 12), 1);
   let selected = null;
 
   function renderCal() {
@@ -90,6 +91,12 @@
       <span><strong>${x.nombre}</strong><small>${x.nota}</small></span>
     </label>`).join("");
 
+  const horarios = C.horarios || [{ nombre: "Tarde", horas: "" }];
+  $("#horario").innerHTML = horarios.map((h, i) => {
+    const label = h.horas ? `${h.nombre} (${h.horas})` : h.nombre;
+    return `<option value="${i}"${h.porDefecto ? " selected" : ""}>${label}</option>`;
+  }).join("");
+
   function dayBefore(s) { const d = fromIso(s); d.setDate(d.getDate() - 1); return iso(d); }
 
   function updateChosen() {
@@ -124,12 +131,12 @@
     const lines = [
       "Hola, quiero reservar en Espacio en Blanco:",
       "",
-      "📅 Fecha: " + fmtLong.format(fromIso(selected)),
-      "🎉 Evento: " + f.get("tipo"),
-      "👥 Invitados: " + f.get("invitados"),
-      "🕒 Horario: " + f.get("horario"),
-      extras.length ? "➕ Extras: " + extras.join(", ") : null,
-      String(f.get("comentarios") || "").trim() ? "📝 " + f.get("comentarios").trim() : null,
+      "- Fecha: " + fmtLong.format(fromIso(selected)),
+      "- Evento: " + f.get("tipo"),
+      "- Invitados: " + f.get("invitados"),
+      "- Horario: " + (() => { const h = horarios[+f.get("horario")] || horarios[0]; return h.horas ? h.nombre + ", de " + h.horas : h.nombre; })(),
+      extras.length ? "- Extras: " + extras.join(", ") : null,
+      String(f.get("comentarios") || "").trim() ? "- Comentarios: " + f.get("comentarios").trim() : null,
       "",
       "Nombre: " + f.get("nombre").trim(),
       "",
@@ -147,8 +154,8 @@
     e.preventDefault();
     const f = new FormData(e.target);
     if (!f.get("dia") || !String(f.get("nombre")).trim()) { e.target.reportValidity(); return; }
-    const msg = "Hola, me gustaría visitar Espacio en Blanco.\n\n📅 Día: " + fmtLong.format(fromIso(f.get("dia"))) +
-      "\n🕒 Franja: " + f.get("franja") + "\nNombre: " + f.get("nombre").trim() + "\n\n¿Me confirmáis la hora?";
+    const msg = "Hola, me gustaría visitar Espacio en Blanco.\n\n- Día: " + fmtLong.format(fromIso(f.get("dia"))) +
+      "\n- Franja: " + f.get("franja") + "\nNombre: " + f.get("nombre").trim() + "\n\n¿Me confirmáis la hora?";
     window.open(waLink(msg), "_blank", "noopener");
   });
 

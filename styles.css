@@ -171,6 +171,8 @@ em { font-style: italic; }
 .dot.hold { background: #f6ecd9; border: 1px solid #e6d3ad; }
 .dot.sel { background: var(--ink); }
 
+.cal-demo { margin: 14px 0 0; padding: 10px 12px; font-size: 13px; color: var(--ink-2); background: var(--tint); border-radius: var(--radius); }
+.cal-demo[hidden] { display: none; }
 .cal-status { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
 .cal-status:empty { display: none; }
 .form-card h3 { margin-bottom: 14px; }

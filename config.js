@@ -18,22 +18,14 @@ window.EB_CONFIG = {
 
   // CALENDARIO: enlace CSV de la Google Sheet publicada (ver README).
   // Si está vacío, o falla, se usan las fechas de "ocupadas" de abajo.
-  calendarioCsv: "calendario.csv",
+  calendarioCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeKECklPhfBXjNa0SYMfbfWxD5ROcJg7v964PdxSbipHzsSs3abVpvGyoenm-OtkCSioFv0HJ3fFEt/pub?gid=0&single=true&output=csv",
 
-  // Fechas de reserva de respaldo (AAAA-MM-DD)
-  ocupadas: [
-    "2026-10-24", "2026-10-25", "2026-10-31",
-    "2026-11-01", "2026-11-07", "2026-11-14", "2026-11-15", "2026-11-21", "2026-11-28",
-    "2026-12-05", "2026-12-06", "2026-12-08", "2026-12-12", "2026-12-13", "2026-12-19",
-    "2026-12-20", "2026-12-24", "2026-12-26", "2026-12-31",
-    "2027-01-02", "2027-01-05", "2027-01-16", "2027-01-30",
-    "2027-02-13", "2027-02-27",
-    "2027-03-13", "2027-03-20",
-    "2027-04-10", "2027-04-24",
-    "2027-05-01", "2027-05-02", "2027-05-08", "2027-05-09", "2027-05-15",
-    "2027-05-16", "2027-05-22", "2027-05-23", "2027-05-29", "2027-05-30",
-    "2027-06-05", "2027-06-12"
-  ],
+  // Cuántos meses hacia delante se pueden consultar y pedir en el calendario
+  mesesVisibles: 18,
+
+  // Fechas de respaldo (AAAA-MM-DD): solo se usan si la hoja de Google no carga.
+  // Déjalo vacío: las reservas reales se marcan en la hoja.
+  ocupadas: [],
 
   // Días bloqueados por el local (mantenimiento, vacaciones…)
   bloqueadas: [],
@@ -50,6 +42,14 @@ window.EB_CONFIG = {
     { id: "catering", nombre: "Catering", nota: "Os ponemos en contacto con nuestro catering colaborador" },
     { id: "limpieza", nombre: "Servicio de limpieza", nota: "Olvídate de recoger al terminar" },
     { id: "infantil", nombre: "Sala de juegos infantiles", nota: "Zona para que los peques jueguen" }
+  ],
+
+  // Horarios de alquiler (PENDIENTE: confirmar las horas con Lidia)
+  // "porDefecto: true" marca la opción que sale elegida al abrir el formulario.
+  horarios: [
+    { nombre: "Mañana", horas: "10:00 a 16:00" },
+    { nombre: "Tarde", horas: "17:00 a 23:00", porDefecto: true },
+    { nombre: "Día completo", horas: "10:00 a 23:00" }
   ],
 
   // Franjas para visitar el local
